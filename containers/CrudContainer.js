@@ -81,7 +81,7 @@ const CrudContainer = () => {
     if (!confirmed) {
       return; 
     }
-    const response = await axios.delete(`http://localhost:2000/products/${id}`);
+    const response = await axios.delete(`https://apicrud-production-30db.up.railway.app/products${id}`);
     if (response.status === 200) {
       alert(response.data.message);
     } else {
