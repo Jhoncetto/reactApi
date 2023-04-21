@@ -39,12 +39,17 @@ const CrudContainer = () => {
   };
 
   const fetchData = async () => {
-    const response = await axios.get("https://apicrud-production-30db.up.railway.app/products/");
+    const response = await axios.get(
+      "https://apicrud-production-30db.up.railway.app/products/"
+    );
     setData(response.data);
   };
 
   const handlePost = async () => {
-    const response = await axios.post("https://apicrud-production-30db.up.railway.app/products/", form);
+    const response = await axios.post(
+      "https://apicrud-production-30db.up.railway.app/products/",
+      form
+    );
     if (response.status === 200) {
       alert("Creacion del producto satisfactorio");
     } else {
@@ -75,20 +80,23 @@ const CrudContainer = () => {
     fetchData();
   };
 
-  
   const handleDelete = async (id) => {
-    const confirmed = window.confirm('¿Estás seguro de que quieres eliminar este producto?');
+    const confirmed = window.confirm(
+      "¿Estás seguro de que quieres eliminar este producto?"
+    );
     if (!confirmed) {
-      return; 
+      return;
     }
-    const response = await axios.delete(`https://apicrud-production-30db.up.railway.app/products/${id}`);
+    const response = await axios.delete(
+      `https://apicrud-production-30db.up.railway.app/products/${id}`
+    );
     if (response.status === 200) {
       alert(response.data.message);
     } else {
-      alert('Producto no ha sido eliminado');
+      alert("Producto no ha sido eliminado");
     }
     fetchData();
-  };
+  };
 
   const columns = [
     {
@@ -145,11 +153,10 @@ const CrudContainer = () => {
     <>
       <Row>
         <Col span={12} offset={6}>
-          <h1>Mi primera api</h1>
+          <Table rowKey={"id"} dataSource={data} columns={columns} />
           <Button type="primary" onClick={showModal}>
             Crear
           </Button>
-          <Table rowKey={"id"} dataSource={data} columns={columns} />
         </Col>
       </Row>
 
