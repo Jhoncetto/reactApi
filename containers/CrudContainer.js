@@ -12,6 +12,7 @@ const CrudContainer = () => {
     name: "",
     price: "",
     description: "",
+    category:""
   });
 
   useEffect(() => {
