@@ -7,7 +7,6 @@ const { TextArea } = Input;
 const CrudContainer = () => {
   const [data, setData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
-
   const [form, setForm] = useState({
     name: "",
     price: "",
@@ -192,7 +191,7 @@ const CrudContainer = () => {
           onChange={handleChange}
           name="category"
           placeholder="Categoria del producto"
-          value={form && form.price}
+          value={form && form.category}
         />
         <p>Descripcion:</p>
         <TextArea
