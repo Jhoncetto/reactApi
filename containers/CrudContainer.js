@@ -115,6 +115,11 @@ const CrudContainer = () => {
       key: "price",
     },
     {
+      title: "Categoria",
+      dataIndex: "category",
+      key: "category",
+    },
+    {
       title: "Descripcion",
       dataIndex: "description",
       key: "description",
@@ -146,6 +151,7 @@ const CrudContainer = () => {
       name: "",
       price: "",
       description: "",
+      category: "",
     });
   };
 
@@ -178,6 +184,13 @@ const CrudContainer = () => {
           onChange={handleChange}
           name="price"
           placeholder="Precio del producto"
+          value={form && form.price}
+        />
+        <p>Categoria:</p>
+        <Input
+          onChange={handleChange}
+          name="category"
+          placeholder="Categoria del producto"
           value={form && form.price}
         />
         <p>Descripcion:</p>
